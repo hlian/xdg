@@ -1,0 +1,6 @@
+[interactive]
+	diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
+[pager]
+	log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less --tabs=4 -RFX
+	show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less --tabs=4 -RFX
+	diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less --tabs=4 -RFX

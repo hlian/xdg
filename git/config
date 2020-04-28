@@ -1,0 +1,54 @@
+# -*- mode: conf -*-
+
+[push]
+	default = simple
+[core]
+	pager = less --tabs=2 -RFX -x1,5
+	abbrev = 4
+	excludesfile = ~/.gitignore_global
+	editor = emacsclient -c
+[rebase]
+	autostash = true
+	autosquash = true
+[rerere]
+	enabled = true
+[user]
+	name = Hao Lian
+	email = hi@haolian.org
+[include]
+	path = ~/.gitconfig.local
+[diff]
+	renames = copies
+	mnemonicPrefix = true
+	autosetupmerge = true
+	wsErrorHighlight = old,new,context
+	algorithm = histogram
+	colormoved = default
+[merge]
+	stat = true
+	conflictstyle = diff3
+[status]
+	submoduleSummary = true
+[url "git@github.com:"]
+	insteadOf = "g:"
+[url "git@github.com:hlian"]
+	insteadOf = "f:"
+[alias]
+	b = branch
+	ci = commit -v
+	cip = commit -pv
+	co = checkout
+	r = remote
+	p = pull
+	u = push
+	d = diff
+	dd = diff --cached
+	l = log
+	s = status
+	r = rebase
+	ri = rebase --interactive
+	rc = rebase --cont
+	sigh = remote
+	work = config user.email \"hao.lian@originate.com\"
+[github]
+	user = hlian
