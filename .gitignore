@@ -2,3 +2,4 @@ node_modules/
 nvim/autoload/plug.vim
 hub
 configstore/
+emacs/
