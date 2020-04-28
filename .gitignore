@@ -3,3 +3,4 @@ nvim/autoload/plug.vim
 hub
 configstore/
 emacs/
+fzf/
