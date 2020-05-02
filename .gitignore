@@ -4,3 +4,5 @@ hub
 configstore/
 emacs/
 fzf/
+nvim/.netrwhist
+nvim/autoload/
