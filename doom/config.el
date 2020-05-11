@@ -3,7 +3,7 @@
 (progn (define-key key-translation-map (kbd ";") (kbd ":"))
       (define-key key-translation-map (kbd ":") (kbd ";")))
 
-(setq doom-font (font-spec :family "Iosevka" :size 13))
+(setq doom-font (font-spec :family "Iosevka" :size 14))
 
 (setq doom-theme 'doom-solarized-light)
 (setq org-directory "~/org/")
@@ -14,7 +14,6 @@
 (setq menu-bar-mode nil)
 
 (use-package hl-line+
-  :disabled
   :config
   (hl-line-when-idle-interval 0.3)
   (toggle-hl-line-when-idle t))
@@ -67,6 +66,15 @@
 (setq counsel-rg-base-command "rg --hidden -M 120 --with-filename --no-heading --line-number --color never %s")
 (after! ivy
   (setq ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-cd-selected))
+
+(setq-hook! 'web-mode-hook
+  web-mode-code-indent-offset 2)
+
+
+(after! ivy
+  (ivy-add-actions
+  'counsel-rg
+  `(("u" ,(lambda (x) (insert (if (stringp x) (replace-regexp-in-string "^[^:]+:[^:]+:" "" x) (car x)))) "insert+"))))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
