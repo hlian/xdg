@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "heroku": "^7.35.1",
-    "sass": "^1.16.0"
+    "typescript-language-server": "^0.4.0"
   }
 }
