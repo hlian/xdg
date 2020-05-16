@@ -63,6 +63,7 @@
   :lighter "")
 
 ;; counsel and ivy
+;; ---------------
 (setq counsel-rg-base-command "rg --hidden -M 120 --with-filename --no-heading --line-number --color never %s")
 (after! ivy
   (setq ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-cd-selected))
@@ -70,11 +71,15 @@
 (setq-hook! 'web-mode-hook
   web-mode-code-indent-offset 2)
 
-
 (after! ivy
   (ivy-add-actions
   'counsel-rg
   `(("u" ,(lambda (x) (insert (if (stringp x) (replace-regexp-in-string "^[^:]+:[^:]+:" "" x) (car x)))) "insert+"))))
+
+;; evil
+;; ----
+(after! evil
+  (setq evil-cross-lines t))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
