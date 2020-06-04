@@ -81,6 +81,11 @@
 (after! evil
   (setq evil-cross-lines t))
 
+(general-define-key
+ :keymaps '(normal insert emacs)
+ "s-j s-k" 'evil-save-and-close
+ "s-j s-0" 'evil-quit)
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
