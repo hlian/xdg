@@ -36,6 +36,7 @@
 (defvar hao/prettier-bin)
 
 (defun hao/use-eslint-from-node-modules ()
+  (interactive)
   (let* ((root (locate-dominating-file
                 (or (buffer-file-name) default-directory)
                 ".hao"))
