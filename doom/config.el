@@ -27,6 +27,18 @@
 
 (map! :desc "save" "s-." #'evil-write-all)
 (map! :desc "universal argument" "C-s-u" #'universal-argument)
+(map! :nv "C-=" #'er/contract-region
+      :nv "C-+" #'er/expand-region)
+
+;; json
+;; ----
+
+(defun my/json-mode-hook ()
+  (setq tab-width 2)
+  (setq js-indent-level 2))
+
+(add-hook 'json-mode-hook 'my/json-mode-hook)
+(add-hook 'js2-mode-hook 'my/json-mode-hook)
 
 ;; typescript
 ;; ----------
@@ -53,9 +65,13 @@
       (setq-local flycheck-javascript-eslint-executable eslint))))
 
 (defun hao/typescript-mode-hook ()
+  (interactive)
+  (setq typescript-indent-level 2)
+  (setq web-mode-markup-indent-offset 2)
   (hao/use-eslint-from-node-modules)
   (typescript-format-on-save-mode))
 
+(add-hook 'typescript-mode-hook 'hao/typescript-mode-hook)
 (add-hook 'web-mode-hook 'hao/typescript-mode-hook)
 
 (reformatter-define typescript-format
@@ -86,6 +102,12 @@
  :keymaps '(normal insert emacs)
  "s-j s-k" 'evil-save-and-close
  "s-j s-0" 'evil-quit)
+
+;; tuareg
+;; ------
+
+(with-eval-after-load 'tuareg-mode
+  (defi))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
