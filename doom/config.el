@@ -18,6 +18,8 @@
   (hl-line-when-idle-interval 0.3)
   (toggle-hl-line-when-idle t))
 
+(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
+
 ;; keybindings
 ;; -----------
 (map! :leader
@@ -96,6 +98,8 @@
 ;; evil
 ;; ----
 (after! evil
+  (setq +evil-want-o/O-to-continue-comments nil)
+  (setq-default evil-auto-indent nil)
   (setq evil-cross-lines t))
 
 (general-define-key
@@ -105,9 +109,6 @@
 
 ;; tuareg
 ;; ------
-
-(with-eval-after-load 'tuareg-mode
-  (defi))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
