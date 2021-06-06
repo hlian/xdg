@@ -1,8 +1,8 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-
 (progn (define-key key-translation-map (kbd ";") (kbd ":"))
       (define-key key-translation-map (kbd ":") (kbd ";")))
-
+(setq mac-option-modifier 'super)
+(setq mac-command-modifier 'meta)
 (setq doom-font (font-spec :family "Iosevka" :size 14))
 
 (setq doom-theme 'doom-solarized-light)
@@ -11,7 +11,6 @@
 
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
-(setq menu-bar-mode nil)
 
 (use-package hl-line+
   :config
@@ -109,6 +108,10 @@
 
 ;; tuareg
 ;; ------
+(require 'ocamlformat)
+(add-hook 'tuareg-mode-hook (lambda ()
+  (define-key tuareg-mode-map (kbd "C-M-<tab>") #'ocamlformat)
+  (add-hook 'before-save-hook #'ocamlformat-before-save)))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
